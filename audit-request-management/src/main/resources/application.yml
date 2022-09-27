@@ -1,0 +1,16 @@
+
+server:
+  port: 9090
+
+#microservice specific properties to register with eureka
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+
+spring:
+  config:
+    import:  configserver:http://localhost:8888
+
+  application:
+    name: ARM-SERVICE

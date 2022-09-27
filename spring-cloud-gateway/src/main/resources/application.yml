@@ -1,0 +1,18 @@
+server:
+  port: 9000
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+spring:
+  application:
+    name: GATEWAY-API
+# declarative routes
+  cloud:
+    gateway:
+      routes:
+        - id: auditRequestManagement
+          uri: lb://ARM-SERVICE
+          predicates:
+              - Path=/api/**
